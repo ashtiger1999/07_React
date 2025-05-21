@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import Exam2 from "./component/Exam2";
+import Exam5 from "./component/Exam5";
 
 function App() {
   // 상태(state)
@@ -18,11 +18,17 @@ function App() {
       </>
     */
 
-    <>
-      <button onClick={() => setShowExam(!showExam)}>CLICK</button>
+    // <>
+    //   <button onClick={() => setShowExam(!showExam)}>CLICK</button>
 
-      {showExam && <Exam2 jaeho="jaeho" test="test" />}
-    </>
+    //   {showExam && <Exam2 jaeho="jaeho" test="test" />}
+    // </>
+
+    // <Exam3 />
+
+    // <Exam4 />
+
+    <Exam5 />
   );
 }
 
