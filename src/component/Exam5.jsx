@@ -40,7 +40,10 @@ const Exam5_3 = (props) => {
   }
 
   return (
-    <button onClick={() => props.setIsLogin(!props.isLogin)}>{result}</button>
+    <>
+      <h1>{result}</h1>
+      <button onClick={() => props.setIsLogin(!props.isLogin)}>BUTTON</button>
+    </>
   );
 };
 

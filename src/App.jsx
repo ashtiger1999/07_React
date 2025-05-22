@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-import Exam5 from "./component/Exam5";
+
+import Exam7 from "./component/Exam7";
 
 function App() {
   // 상태(state)
@@ -28,7 +29,11 @@ function App() {
 
     // <Exam4 />
 
-    <Exam5 />
+    // <Exam5 />
+
+    // <Exam6 />
+
+    <Exam7 />
   );
 }
 
