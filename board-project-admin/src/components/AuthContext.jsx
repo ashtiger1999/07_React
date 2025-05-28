@@ -79,12 +79,27 @@ const AuthProvider = ({ children }) => {
     }, 60 * 60 * 1000); // 1시간 후
   };
 
+  const handleLogout = async () => {
+    try {
+      const resp = await axios.get("http://localhost/admin/logout");
+      console.log(resp);
+
+      if (resp.status == 200) {
+        localStorage.removeItem("userData");
+        setUser(null);
+      }
+    } catch (error) {
+      console.log("로그아웃 중 문제발생 : ", error);
+    }
+  };
+
   // 자식(하위) 컴포넌트에게 전달할 데이터를 하나로 묶기
   const globalState = {
     user,
     changeInputEmail,
     changeInputPw,
     handleLogin,
+    handleLogout,
   };
 
   return (
