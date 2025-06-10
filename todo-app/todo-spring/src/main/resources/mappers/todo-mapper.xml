@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.todo.demo.todo.model.mapper.TodoMapper">
+
+	<!-- select todo -->
+	<select id="getTodoList">
+		SELECT TODO_NO,
+			   TITLE,
+			   CONTENT,
+			   IS_COMPLETE,
+			   TO_CHAR(ENROLL_DATE, 'YYYY-MM-DD HH24:MI:SS') AS ENROLL_DATE,
+			   TODO_DEL_FL
+		FROM "TODO"
+		WHERE TODO_DEL_FL = 'N'
+	</select>
+	
+	<!-- insert todo -->
+	<insert id="insertTodo">
+		INSERT INTO "TODO"
+		(
+			TODO_NO,
+			TITLE,
+			CONTENT,
+			IS_COMPLETE,
+			ENROLL_DATE,
+			TODO_DEL_FL
+		)
+		VALUES(
+			SEQ_TODO.NEXTVAL,
+			#{title},
+			#{content},
+			DEFAULT,
+			DEFAULT,
+			DEFAULT
+		)
+	</insert>
+
+	<!-- update isComplete -->
+	<update id="changeIsComplete">
+		UPDATE "TODO" 
+		SET IS_COMPLETE = #{isComplete}
+		WHERE TODO_NO = #{todoNo}
+	</update>
+	
+	<!-- update todo_del_fl -->
+	<update id="deleteTodo">
+		UPDATE "TODO"
+		SET TODO_DEL_FL = 'Y'
+		WHERE TODO_NO = #{todoNo}
+	</update>
+</mapper>
